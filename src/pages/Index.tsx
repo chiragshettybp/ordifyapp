@@ -1,6 +1,7 @@
 import Layout from "@/components/layout/Layout";
 import ProductGrid from "@/components/products/ProductGrid";
 import TrendingSneakers from "@/components/products/TrendingSneakers";
+import FAQ from "@/components/FAQ";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
@@ -25,6 +26,9 @@ const Index = () => {
           <ProductGrid />
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FAQ />
     </Layout>
   );
 };
