@@ -14,6 +14,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 import { format, subDays, startOfDay, endOfDay, isWithinInterval } from 'date-fns';
 import { cn } from '@/lib/utils';
 import { useLiveAnalytics } from '@/hooks/useLiveAnalytics';
+import { useRevenueCards } from '@/hooks/useRevenueCards';
 
 interface DashboardStats {
   totalOrders: number;
@@ -79,8 +80,18 @@ const AdminDashboard = () => {
   const [isDatePickerOpen, setIsDatePickerOpen] = useState(false);
   const navigate = useNavigate();
 
-  // Use the live analytics hook
+  // Use the live analytics hook for order metrics
   const { liveStats, isLoading: analyticsLoading, refresh } = useLiveAnalytics();
+  
+  // Use the revenue cards hook for individual revenue metrics
+  const { 
+    totalRevenue, 
+    netRevenue, 
+    avgOrderValue, 
+    refundedAmount, 
+    isLoading: revenueLoading, 
+    refresh: refreshRevenue 
+  } = useRevenueCards();
 
   useEffect(() => {
     fetchDashboardData();
@@ -279,7 +290,7 @@ const AdminDashboard = () => {
     );
   };
 
-  if (isLoading || analyticsLoading) {
+  if (isLoading || analyticsLoading || revenueLoading) {
     return (
       <AdminLayout>
         <div className="p-6 space-y-6">
@@ -302,7 +313,7 @@ const AdminDashboard = () => {
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-0">
           <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-foreground">Financial Dashboard</h1>
           <div className="flex gap-2">
-            <Button onClick={refresh} variant="outline" size="sm" className="w-fit">
+            <Button onClick={() => { refresh(); refreshRevenue(); }} variant="outline" size="sm" className="w-fit">
               <RefreshCw className="h-4 w-4 mr-2" />
               Refresh
             </Button>
@@ -314,9 +325,10 @@ const AdminDashboard = () => {
 
 
 
-        {/* Revenue Analytics Cards */}
+        {/* Revenue Analytics Cards - Each with individual queries */}
         <div className="space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {/* Total Revenue - Blue */}
             <Card className="bg-black border-gray-700">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium text-blue-400">Total Revenue</CardTitle>
@@ -324,12 +336,13 @@ const AdminDashboard = () => {
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold text-white">
-                  ₹{liveStats.totalRevenue.toLocaleString('en-IN', { maximumFractionDigits: 0 })}
+                  ₹{totalRevenue.toLocaleString('en-IN', { maximumFractionDigits: 0 })}
                 </div>
-                <p className="text-xs text-gray-400">from paid orders</p>
+                <p className="text-xs text-gray-400">sum of paid payments</p>
               </CardContent>
             </Card>
 
+            {/* Net Revenue - Green */}
             <Card className="bg-black border-gray-700">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium text-green-400">Net Revenue</CardTitle>
@@ -337,22 +350,37 @@ const AdminDashboard = () => {
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold text-white">
-                  ₹{liveStats.netRevenue.toLocaleString('en-IN', { maximumFractionDigits: 0 })}
+                  ₹{netRevenue.toLocaleString('en-IN', { maximumFractionDigits: 0 })}
                 </div>
-                <p className="text-xs text-gray-400">revenue minus refunds</p>
+                <p className="text-xs text-gray-400">total revenue - refunds</p>
               </CardContent>
             </Card>
 
+            {/* Average Order Value - Purple */}
             <Card className="bg-black border-gray-700">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium text-indigo-400">Average Order Value</CardTitle>
-                <TrendingUp className="h-4 w-4 text-indigo-400" />
+                <CardTitle className="text-sm font-medium text-purple-400">Average Order Value</CardTitle>
+                <TrendingUp className="h-4 w-4 text-purple-400" />
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold text-white">
-                  ₹{liveStats.avgOrderValue.toLocaleString('en-IN', { maximumFractionDigits: 0 })}
+                  ₹{avgOrderValue.toLocaleString('en-IN', { maximumFractionDigits: 0 })}
                 </div>
-                <p className="text-xs text-gray-400">per delivered order</p>
+                <p className="text-xs text-gray-400">net revenue ÷ delivered orders</p>
+              </CardContent>
+            </Card>
+
+            {/* Refunded Amount - Red */}
+            <Card className="bg-black border-gray-700">
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                <CardTitle className="text-sm font-medium text-red-400">Refunded Amount</CardTitle>
+                <AlertTriangle className="h-4 w-4 text-red-400" />
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold text-white">
+                  ₹{refundedAmount.toLocaleString('en-IN', { maximumFractionDigits: 0 })}
+                </div>
+                <p className="text-xs text-gray-400">sum of refund payments</p>
               </CardContent>
             </Card>
           </div>
@@ -410,21 +438,8 @@ const AdminDashboard = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <Card className="bg-black border-gray-700">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium text-red-400">Refunded Amount</CardTitle>
-                <AlertTriangle className="h-4 w-4 text-red-400" />
-              </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold text-white">
-                  ₹{liveStats.refundedAmount.toLocaleString('en-IN', { maximumFractionDigits: 0 })}
-                </div>
-                <p className="text-xs text-gray-400">total refunds issued</p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-black border-gray-700">
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium text-purple-400">Active Users</CardTitle>
-                <Users className="h-4 w-4 text-purple-400" />
+                <CardTitle className="text-sm font-medium text-cyan-400">Active Users</CardTitle>
+                <Users className="h-4 w-4 text-cyan-400" />
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold text-white">{liveStats.activeUsers}</div>
