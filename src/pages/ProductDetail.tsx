@@ -310,7 +310,7 @@ const ProductDetail = () => {
               {relatedProducts.map((relatedProduct) => (
                 <div key={relatedProduct.id} className="product-card">
                   <a href={`/product/${relatedProduct.slug}`} className="block">
-                    <div className="aspect-square relative overflow-hidden bg-muted rounded-t-lg">
+                    <div className="aspect-square relative overflow-hidden bg-white rounded-t-lg p-4">
                       <img
                         src={
                           relatedProduct.thumbnail_image ||
