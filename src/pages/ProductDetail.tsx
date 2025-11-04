@@ -296,7 +296,7 @@ const ProductDetail = () => {
             {product.description && (
               <div className="bg-card rounded-xl p-6">
                 <h3 className="font-semibold text-foreground mb-3">About This Item</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{product.description}</p>
+                <p className="text-muted-foreground text-sm leading-relaxed whitespace-pre-line">{product.description}</p>
               </div>
             )}
           </div>
