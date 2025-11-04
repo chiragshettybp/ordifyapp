@@ -20,14 +20,14 @@ const Terms = () => {
               <section>
                 <h2 className="text-2xl font-bold text-foreground mb-4">1. Agreement to Terms</h2>
                 <p className="text-muted-foreground">
-                  By accessing and using Ordify Sneakers, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to these terms, please do not use our services.
+                  By accessing and using Ordify, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to these terms, please do not use our services.
                 </p>
               </section>
 
               <section>
                 <h2 className="text-2xl font-bold text-foreground mb-4">2. Use License</h2>
                 <p className="text-muted-foreground mb-3">
-                  Permission is granted to temporarily access the materials on Ordify Sneakers for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:
+                  Permission is granted to temporarily access the materials on Ordify for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:
                 </p>
                 <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
                   <li>Modify or copy the materials</li>
@@ -68,7 +68,7 @@ const Terms = () => {
               <section>
                 <h2 className="text-2xl font-bold text-foreground mb-4">7. Intellectual Property</h2>
                 <p className="text-muted-foreground">
-                  All content on this website, including text, graphics, logos, images, and software, is the property of Ordify Sneakers and is protected by copyright and trademark laws. Unauthorized use of any content may violate copyright, trademark, and other laws.
+                  All content on this website, including text, graphics, logos, images, and software, is the property of Ordify and is protected by copyright and trademark laws. Unauthorized use of any content may violate copyright, trademark, and other laws.
                 </p>
               </section>
 

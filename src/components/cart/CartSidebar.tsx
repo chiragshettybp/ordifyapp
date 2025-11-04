@@ -53,7 +53,7 @@ const CartSidebar = ({ children }: CartSidebarProps) => {
               <div className="space-y-2">
                 <h3 className="font-semibold text-foreground">Your cart is empty</h3>
                 <p className="text-sm text-muted-foreground">
-                  Add some sneakers to get started!
+                  Add some products to get started!
                 </p>
               </div>
               <Button 

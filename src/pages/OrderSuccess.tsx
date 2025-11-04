@@ -212,7 +212,7 @@ const OrderSuccess = () => {
                   </div>
                   <h3 className="font-semibold text-foreground">Fast Delivery</h3>
                   <p className="text-sm text-muted-foreground">
-                    Free shipping - Your sneakers will arrive in 3-5 business days
+                    Free shipping - Your order will arrive in 3-5 business days
                   </p>
                 </div>
               </div>

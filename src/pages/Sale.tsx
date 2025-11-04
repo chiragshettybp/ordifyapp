@@ -13,7 +13,7 @@ const Sale = () => {
               Sale & Special Offers
             </h1>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Don't miss out on amazing deals on premium sneakers. 
+              Don't miss out on amazing deals on imported jackets and apparels. 
               Limited stock available at unbeatable prices.
             </p>
           </div>

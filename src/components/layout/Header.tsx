@@ -16,7 +16,7 @@ const Header = () => {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <span className="text-2xl font-bold text-foreground tracking-tight">ORDIFY</span>
+            <img src={logo} alt="Ordify - Imported Jackets & Apparels" className="h-8 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
@@ -24,8 +24,8 @@ const Header = () => {
             <Link to="/" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
               All
             </Link>
-            <Link to="/sneakers" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
-              Sneakers
+            <Link to="/jackets" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+              Jackets
             </Link>
             <Link to="/new-arrivals" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
               New Arrivals
@@ -65,7 +65,7 @@ const Header = () => {
         {isMenuOpen && <div className="md:hidden border-t border-border py-4">
             <nav className="flex flex-col space-y-4">
               <Link to="/" className="text-sm font-medium text-foreground">All</Link>
-              <Link to="/sneakers" className="text-sm font-medium text-muted-foreground">Sneakers</Link>
+              <Link to="/jackets" className="text-sm font-medium text-muted-foreground">Jackets</Link>
               <Link to="/new-arrivals" className="text-sm font-medium text-muted-foreground">New Arrivals</Link>
               <Link to="/track-order" className="text-sm font-medium text-muted-foreground">Track Order</Link>
             </nav>

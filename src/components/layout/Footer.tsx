@@ -7,13 +7,14 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="space-y-4">
-            <div className="text-xl font-bold">
-              <span className="text-primary">Ordify</span>
-              <span className="text-foreground"> Sneakers</span>
+            <div className="space-y-4">
+              <h3 className="text-lg font-bold">
+                <span className="text-foreground">Ordify</span>
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                Premium imported jackets, apparels, and more for every style.
+              </p>
             </div>
-            <p className="text-sm text-muted-foreground">
-              Premium sneakers for every style and occasion.
-            </p>
           </div>
 
           {/* Quick Links */}
@@ -65,7 +66,7 @@ const Footer = () => {
         <div className="mt-12 pt-8 border-t border-border">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-sm text-muted-foreground">
-              &copy; 2024 Ordify Sneakers. All rights reserved.
+              &copy; 2024 Ordify. All rights reserved.
             </p>
             <p className="text-sm text-muted-foreground">
               Created by <span className="text-primary">Ordify</span>

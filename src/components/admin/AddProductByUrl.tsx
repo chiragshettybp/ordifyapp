@@ -38,7 +38,7 @@ export const AddProductByUrl = ({ open, onOpenChange, onSuccess }: AddProductByU
     description: '',
     price: '',
     original_price: '',
-    category: 'sneakers',
+    category: 'jackets',
     brand: '',
     sizes: '',
     colors: '',
@@ -86,7 +86,7 @@ export const AddProductByUrl = ({ open, onOpenChange, onSuccess }: AddProductByU
       const extractBrand = (title: string): string => {
         if (!title) return '';
         const words = title.trim().split(/\s+/);
-        // Common sneaker brands
+        // Common fashion brands
         const brands = ['NIKE', 'ADIDAS', 'YEEZY', 'JORDAN', 'CONVERSE', 'VANS', 'NEW BALANCE', 'PUMA', 'REEBOK'];
         for (const word of words) {
           if (brands.includes(word.toUpperCase())) {
@@ -106,7 +106,7 @@ export const AddProductByUrl = ({ open, onOpenChange, onSuccess }: AddProductByU
         description: product.description || '',
         price: sellingPrice,
         original_price: product.originalPrice?.toString() || '',
-        category: 'sneakers',
+        category: 'jackets',
         brand: brandName,
         sizes: '7,7.5,8.5,9,10',
         colors: '',
@@ -444,7 +444,7 @@ export const AddProductByUrl = ({ open, onOpenChange, onSuccess }: AddProductByU
       setSelectedImages([]);
       setProductForm({
         name: '', description: '', price: '', original_price: '',
-        category: 'sneakers', brand: '', sizes: '', colors: '', 
+        category: 'jackets', brand: '', sizes: '', colors: '', 
         stock_count: '', images: [], thumbnail_image: ''
       });
       
@@ -664,7 +664,9 @@ export const AddProductByUrl = ({ open, onOpenChange, onSuccess }: AddProductByU
                       <SelectValue placeholder="Category" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="sneakers">Sneakers</SelectItem>
+                      <SelectItem value="jackets">Jackets</SelectItem>
+                      <SelectItem value="apparels">Apparels</SelectItem>
+                      <SelectItem value="accessories">Accessories</SelectItem>
                       <SelectItem value="apparel">Apparel</SelectItem>
                       <SelectItem value="accessories">Accessories</SelectItem>
                     </SelectContent>

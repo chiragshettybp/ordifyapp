@@ -9,28 +9,28 @@ interface FAQItem {
 
 const faqData: FAQItem[] = [
   {
-    question: "What's included in the Premium Sneaker Collection - 5 Pack®?",
-    answer: "You get a complete sneaker collection system: 1x Premium Athletic Sneakers (Sizes 6-12), 1x Casual Walking Shoes (All weather protection), 1x High-Performance Running Shoes, 1x Stylish Street Sneakers (Multiple colorways), 1x Limited Edition Designer Kicks, 1x Premium Sneaker Care Kit, plus User's Manual and FREE Online Style Tutorial."
+    question: "What types of products does Ordify offer?",
+    answer: "We specialize in premium imported jackets, apparels, and fashion accessories. Our collection includes bomber jackets, leather jackets, denim wear, hoodies, casual wear, and more - all sourced from top international brands and designers."
   },
   {
-    question: "Is this suitable for beginners and all activity levels?",
-    answer: "Absolutely! Our sneaker collection is designed for everyone from casual walkers to serious athletes. Each pair features different support levels and cushioning systems to match your activity needs and experience level."
+    question: "Are your products authentic?",
+    answer: "Absolutely! All our products are 100% authentic and sourced directly from authorized distributors and brands. We guarantee the quality and authenticity of every item we sell."
   },
   {
-    question: "Can I use these for sports and everyday wear?",
-    answer: "Yes! Our versatile collection includes specialized sneakers for running, training, casual wear, and street style. Each pair is engineered for specific activities while maintaining all-day comfort for daily use."
+    question: "Do you offer international sizing?",
+    answer: "Yes! We provide detailed size charts for all our products including conversions for US, EU, UK, and Asian sizes. We recommend checking the size guide for each product to ensure the perfect fit."
   },
   {
-    question: "How durable are these Premium Sneakers?",
-    answer: "Our sneakers are built to last with premium materials, reinforced stitching, and high-quality rubber outsoles. Each pair is designed to withstand daily wear while maintaining their style and performance characteristics."
+    question: "How is the quality of imported products?",
+    answer: "Our imported products are built to last with premium materials and expert craftsmanship. We carefully select each brand and item based on quality standards, ensuring durability and style that stands the test of time."
   },
   {
-    question: "Who can benefit from this premium sneaker collection?",
-    answer: "Perfect for athletes, fitness enthusiasts, style-conscious individuals, professionals who walk a lot, students, and anyone who values comfort and quality footwear. Suitable for all ages and activity levels."
+    question: "Who shops at Ordify?",
+    answer: "Everyone! Whether you're a fashion enthusiast, outdoor adventurer, or someone who values quality and style, our diverse collection of imported jackets and apparels has something for every lifestyle and preference."
   },
   {
-    question: "What's your guarantee policy?",
-    answer: "We offer a 30-day satisfaction guarantee and 1-year warranty on manufacturing defects. If you're not completely satisfied with your sneakers, we'll provide a full refund or exchange within 30 days of purchase."
+    question: "What if I'm not satisfied with my purchase?",
+    answer: "We offer a 30-day satisfaction guarantee and 1-year warranty on manufacturing defects. If you're not completely satisfied with your purchase, we'll provide a full refund or exchange within 30 days."
   }
 ];
 

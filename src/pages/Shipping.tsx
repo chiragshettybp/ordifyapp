@@ -55,7 +55,7 @@ const Shipping = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  All sneakers are carefully packaged in their original boxes with protective materials to ensure they arrive in perfect condition.
+                  All products are carefully packaged with protective materials to ensure they arrive in perfect condition.
                 </p>
               </CardContent>
             </Card>

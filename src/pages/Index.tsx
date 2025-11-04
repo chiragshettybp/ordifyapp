@@ -16,10 +16,10 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-foreground mb-4">
-              Featured Sneakers
+              Featured Products
             </h2>
             <p className="text-muted-foreground">
-              Handpicked selections from our premium collection
+              Handpicked imported jackets, apparels, and more
             </p>
           </div>
           

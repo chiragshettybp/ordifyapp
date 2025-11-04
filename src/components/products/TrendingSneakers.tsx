@@ -34,7 +34,7 @@ const TrendingSneakers = () => {
       <section className="bg-background py-8 md:hidden">
         <div className="px-4">
           <div className="flex items-center gap-2 mb-6">
-            <h2 className="text-xl font-bold text-foreground">Trending Sneakers</h2>
+            <h2 className="text-xl font-bold text-foreground">Trending Products</h2>
             <HelpCircle className="w-5 h-5 text-muted-foreground" />
           </div>
           <div className="grid grid-cols-2 gap-4">
@@ -69,7 +69,7 @@ const TrendingSneakers = () => {
     <section className="bg-background py-8 md:hidden">
       <div className="px-4">
         <div className="flex items-center gap-2 mb-6">
-          <h2 className="text-xl font-bold text-foreground">Trending Sneakers</h2>
+          <h2 className="text-xl font-bold text-foreground">Trending Products</h2>
           <HelpCircle className="w-5 h-5 text-muted-foreground" />
         </div>
         

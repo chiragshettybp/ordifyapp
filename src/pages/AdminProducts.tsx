@@ -50,7 +50,7 @@ const AdminProducts = () => {
     description: '',
     price: '',
     original_price: '',
-    category: 'sneakers',
+    category: 'jackets',
     brand: '',
     sizes: '',
     colors: '',
@@ -217,7 +217,7 @@ const AdminProducts = () => {
       setShowAddDialog(false);
       setNewProduct({
         name: '', description: '', price: '', original_price: '',
-        category: 'sneakers', brand: '', sizes: '', colors: '', 
+        category: 'jackets', brand: '', sizes: '', colors: '', 
         stock_count: '', images: [], thumbnail_image: ''
       });
 
@@ -530,7 +530,9 @@ const AdminProducts = () => {
                       <SelectValue placeholder="Category" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="sneakers">Sneakers</SelectItem>
+                      <SelectItem value="jackets">Jackets</SelectItem>
+                      <SelectItem value="apparels">Apparels</SelectItem>
+                      <SelectItem value="accessories">Accessories</SelectItem>
                       <SelectItem value="apparel">Apparel</SelectItem>
                       <SelectItem value="accessories">Accessories</SelectItem>
                     </SelectContent>
@@ -633,7 +635,9 @@ const AdminProducts = () => {
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="all">All Categories</SelectItem>
-                  <SelectItem value="sneakers">Sneakers</SelectItem>
+                  <SelectItem value="jackets">Jackets</SelectItem>
+                  <SelectItem value="apparels">Apparels</SelectItem>
+                  <SelectItem value="accessories">Accessories</SelectItem>
                   <SelectItem value="apparel">Apparel</SelectItem>
                   <SelectItem value="accessories">Accessories</SelectItem>
                 </SelectContent>
@@ -973,7 +977,9 @@ const AdminProducts = () => {
                     <SelectValue placeholder="Category" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="sneakers">Sneakers</SelectItem>
+                    <SelectItem value="jackets">Jackets</SelectItem>
+                    <SelectItem value="apparels">Apparels</SelectItem>
+                    <SelectItem value="accessories">Accessories</SelectItem>
                     <SelectItem value="apparel">Apparel</SelectItem>
                     <SelectItem value="accessories">Accessories</SelectItem>
                   </SelectContent>

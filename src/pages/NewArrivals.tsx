@@ -13,7 +13,7 @@ const NewArrivals = () => {
               New Arrivals
             </h1>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Discover the latest additions to our premium sneaker collection. 
+              Discover the latest imported jackets, apparels, and trending styles. 
               Fresh styles, exclusive drops, and trending designs.
             </p>
           </div>
