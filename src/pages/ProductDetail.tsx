@@ -21,6 +21,10 @@ const ProductDetail = () => {
   const [showSizeChart, setShowSizeChart] = useState(false);
   const [isZoomed, setIsZoomed] = useState(false);
   const [zoomPosition, setZoomPosition] = useState({ x: 0, y: 0 });
+  const [touchZoomScale, setTouchZoomScale] = useState(1);
+  const [touchPanOffset, setTouchPanOffset] = useState({ x: 0, y: 0 });
+  const [initialPinchDistance, setInitialPinchDistance] = useState<number | null>(null);
+  const [lastTouchCount, setLastTouchCount] = useState(0);
 
   const { data: product, isLoading } = useQuery({
     queryKey: ['product', slug],
@@ -99,6 +103,61 @@ const ProductDetail = () => {
     setIsZoomed(false);
   };
 
+  const getDistance = (touches: React.TouchList) => {
+    const [touch1, touch2] = Array.from(touches);
+    const dx = touch2.clientX - touch1.clientX;
+    const dy = touch2.clientY - touch1.clientY;
+    return Math.sqrt(dx * dx + dy * dy);
+  };
+
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (e.touches.length === 2) {
+      const distance = getDistance(e.touches);
+      setInitialPinchDistance(distance);
+      setLastTouchCount(2);
+    } else if (e.touches.length === 1) {
+      setLastTouchCount(1);
+    }
+  };
+
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (e.touches.length === 2 && initialPinchDistance) {
+      e.preventDefault();
+      const currentDistance = getDistance(e.touches);
+      const scale = Math.min(Math.max(1, (currentDistance / initialPinchDistance) * touchZoomScale), 3);
+      setTouchZoomScale(scale);
+      
+      if (scale > 1) {
+        setIsZoomed(true);
+      }
+    } else if (e.touches.length === 1 && touchZoomScale > 1) {
+      e.preventDefault();
+      const touch = e.touches[0];
+      const rect = e.currentTarget.getBoundingClientRect();
+      const x = ((touch.clientX - rect.left) / rect.width) * 100;
+      const y = ((touch.clientY - rect.top) / rect.height) * 100;
+      setZoomPosition({ x, y });
+    }
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (e.touches.length < 2) {
+      setInitialPinchDistance(null);
+    }
+    
+    if (e.touches.length === 0) {
+      // Double tap to reset zoom
+      if (lastTouchCount === 1 && touchZoomScale > 1) {
+        setTimeout(() => {
+          setTouchZoomScale(1);
+          setIsZoomed(false);
+          setTouchPanOffset({ x: 0, y: 0 });
+        }, 300);
+      }
+      setLastTouchCount(0);
+    }
+  };
+
   if (isLoading) {
     return (
       <Layout>
@@ -138,10 +197,13 @@ const ProductDetail = () => {
           {/* Image Gallery */}
           <div className="space-y-4">
             <div 
-              className="relative overflow-hidden rounded-2xl aspect-square cursor-zoom-in"
+              className="relative overflow-hidden rounded-2xl aspect-square cursor-zoom-in touch-none"
               onMouseMove={handleMouseMove}
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
             >
               <img
                 src={
@@ -156,6 +218,12 @@ const ProductDetail = () => {
                 style={
                   isZoomed
                     ? {
+                        transformOrigin: `${zoomPosition.x}% ${zoomPosition.y}%`,
+                        transform: `scale(${touchZoomScale > 1 ? touchZoomScale : 1.5})`,
+                      }
+                    : touchZoomScale > 1
+                    ? {
+                        transform: `scale(${touchZoomScale})`,
                         transformOrigin: `${zoomPosition.x}% ${zoomPosition.y}%`,
                       }
                     : undefined
