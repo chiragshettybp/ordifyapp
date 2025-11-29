@@ -16,7 +16,7 @@ const Header = () => {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <img src={logo} alt="Ordify - Imported Jackets & Apparels" className="h-8 w-auto" />
+            <img src={logo} alt="Ordify - Imported Jackets & Apparels" className="h-12 w-auto object-contain mix-blend-screen" />
           </Link>
 
           {/* Desktop Navigation */}
