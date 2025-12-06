@@ -73,42 +73,42 @@ const TrendingSneakers = () => {
           <HelpCircle className="w-5 h-5 text-muted-foreground" />
         </div>
         
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-3">
           {products.map((product, index) => (
             <Link
               key={product.id}
               to={`/product/${product.slug}`}
-              className="bg-card rounded-xl p-2.5 block hover:shadow-lg transition-shadow"
+              className="block group"
             >
-              <div className="relative mb-2">
-                <div className="rounded-lg overflow-hidden aspect-square">
+              <div className="relative mb-3">
+                <div className="rounded-2xl overflow-hidden aspect-[4/5] bg-muted">
                   <img
                     src={product.images[0] || "/placeholder.svg"}
                     alt={product.name}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     loading="lazy"
                   />
                 </div>
-                <button className="absolute top-2 right-2 w-7 h-7 bg-background/80 rounded-full flex items-center justify-center">
-                  <Heart className="w-3.5 h-3.5 text-muted-foreground" />
+                <button className="absolute top-3 right-3 w-8 h-8 bg-background/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-sm">
+                  <Heart className="w-4 h-4 text-muted-foreground" />
                 </button>
               </div>
               
-              <h3 className="font-semibold text-foreground text-xs leading-tight mb-0.5 line-clamp-2 px-0.5">
+              <h3 className="font-medium text-foreground text-sm leading-snug mb-1 line-clamp-2">
                 {product.name}
               </h3>
               
-              <p className="text-[10px] text-muted-foreground mb-1 px-0.5">
+              <p className="text-xs text-muted-foreground mb-1">
                 Lowest Ask
               </p>
               
-              <p className="text-sm font-bold text-foreground mb-1 px-0.5">
-                ₹{product.price}
+              <p className="text-base font-bold text-foreground mb-1">
+                ₹{product.price.toLocaleString('en-IN')}
               </p>
               
-              <div className="flex items-center gap-1 text-[10px] text-muted-foreground px-0.5">
+              <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
                 <span>{generateSalesData()} sold</span>
-                <Rocket className="w-2.5 h-2.5" />
+                <Rocket className="w-3 h-3" />
               </div>
             </Link>
           ))}
