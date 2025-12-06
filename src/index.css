@@ -37,17 +37,17 @@ All colors MUST be HSL.
 
     /* Primary dark accent system for light mode */
     --primary: 0 0% 0%;
-    --primary-foreground: 0 0% 98%;
+    --primary-foreground: 0 0% 100%;
     --primary-hover: 0 0% 25%;
     --primary-glow: 0 0% 10%;
 
-    --secondary: 0 0% 93%;
+    --secondary: 0 100% 99.8039%;
     --secondary-foreground: 0 0% 0%;
 
     --muted: 0 0% 93%;
     --muted-foreground: 0 0% 45%;
 
-    --accent: 0 0% 93%;
+    --accent: 0 0% 100%;
     --accent-foreground: 0 0% 0%;
 
     --destructive: 0 63% 31%;
