@@ -30,32 +30,32 @@ All colors MUST be HSL.
     --foreground: 0 0% 9%;
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 9%;
+    --card-foreground: 0 0% 0%;
 
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 9%;
 
     /* Primary dark accent system for light mode */
-    --primary: 0 0% 15%;
+    --primary: 0 0% 0%;
     --primary-foreground: 0 0% 98%;
     --primary-hover: 0 0% 25%;
     --primary-glow: 0 0% 10%;
 
     --secondary: 0 0% 93%;
-    --secondary-foreground: 0 0% 15%;
+    --secondary-foreground: 0 0% 0%;
 
     --muted: 0 0% 93%;
     --muted-foreground: 0 0% 45%;
 
     --accent: 0 0% 93%;
-    --accent-foreground: 0 0% 15%;
+    --accent-foreground: 0 0% 0%;
 
     --destructive: 0 63% 31%;
     --destructive-foreground: 0 0% 98%;
 
     --border: 0 0% 85%;
     --input: 0 0% 85%;
-    --ring: 0 0% 15%;
+    --ring: 0 0% 0%;
 
     --radius: 0.75rem;
     
